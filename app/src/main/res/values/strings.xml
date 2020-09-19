@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GithubApiExample</string>
+    <string name="github_user_input">Which github user you want to display ?</string>
+    <string name="github_user">Github User</string>
+</resources>
