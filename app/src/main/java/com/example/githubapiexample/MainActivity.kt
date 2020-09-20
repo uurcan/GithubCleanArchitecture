@@ -3,6 +3,7 @@ package com.example.githubapiexample
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import androidx.databinding.DataBindingUtil
@@ -34,8 +35,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun passEditTextData(){
         val intent = Intent(this,DetailActivity::class.java).apply {
-            putExtra("USER_NAME",edtUserInput.text)
+            putExtra("USER_NAME",edtUserInput.text.toString())
         }
+        Log.e("TEST",edtUserInput.text.toString())
+
         startActivity(intent)
     }
 }

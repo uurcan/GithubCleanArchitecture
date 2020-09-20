@@ -9,5 +9,5 @@ class GithubServiceProvider {
         .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(serverURL)
         .build()
-    val githubAPIService = retrofit.create<GithubAPIService>(GithubAPIService::class.java)
+    val githubAPIService = retrofit.create(GithubAPIService::class.java)
 }
