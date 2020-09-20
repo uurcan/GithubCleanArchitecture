@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun passEditTextData(){
         val intent = Intent(this,DetailActivity::class.java).apply {
-            putExtra("USER_NAME",edtUserInput.text.toString())
+            putExtra("TOKEN",edtUserInput.text.toString())
         }
         Log.e("TEST",edtUserInput.text.toString())
 

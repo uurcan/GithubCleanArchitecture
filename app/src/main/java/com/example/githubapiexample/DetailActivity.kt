@@ -2,7 +2,6 @@ package com.example.githubapiexample
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.githubapiexample.databinding.ActivityDetailBinding
@@ -15,10 +14,11 @@ class DetailActivity : AppCompatActivity() {
 
     private val githubServiceProvider = GithubServiceProvider()
     lateinit var detailBinding: ActivityDetailBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         detailBinding = DataBindingUtil.setContentView(this,R.layout.activity_detail)
-        val userID = intent.getStringExtra("USER_NAME")
+        val userID = intent.getStringExtra("TOKEN")
         loadGithubUserData(userID)
     }
 
@@ -36,6 +36,7 @@ class DetailActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     private fun loadGithubValues(response: Response<User>, detailBinding: ActivityDetailBinding) {
         val picasso = Picasso.get()
+        picasso.load(response.body()?.avatar_url.toString()).into(detailBinding.imgUserImage)
         detailBinding.txtUserBio.text = getString(R.string.bio) + response.body()?.bio.toString()
         detailBinding.txtUserCompany.text = "Company : " + response.body()?.company.toString()
         detailBinding.txtPublicRepos.text = "Public Repos : " + response.body()?.public_repos.toString()
@@ -45,6 +46,5 @@ class DetailActivity : AppCompatActivity() {
         detailBinding.txtFollowings.text =  "Following : " + response.body()?.following.toString()
         detailBinding.txtFollowers.text = "Followers : " + response.body()?.followers.toString()
         detailBinding.txtUserID.text = "ID : " + response.body()?.id.toString()
-        picasso.load(response.body()?.avatar_url.toString()).into(detailBinding.imgUserImage)
     }
 }
