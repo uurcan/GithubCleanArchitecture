@@ -4,34 +4,19 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class User(
-    @SerializedName("login")
+    @SerializedName("Title")
     @Expose
-    var login : String?,
-    @SerializedName("id")
+    var Title : String?,
+    @SerializedName("Year")
     @Expose
-    var id : Int = 0,
-    @SerializedName("avatar_url")
+    var Year : Int = 0,
+    @SerializedName("imdbID")
     @Expose
-    var avatar_url : String?,
-    @SerializedName("name")
+    var imdbID : String?,
+    @SerializedName("Type")
     @Expose
-    var name : String?,
-    @SerializedName("company")
+    var Type : String?,
+    @SerializedName("Poster")
     @Expose
-    var company : String?,
-    @SerializedName("location")
-    @Expose
-    var location : String?,
-    @SerializedName("bio")
-    @Expose
-    var bio : String?,
-    @SerializedName("public_repos")
-    @Expose
-    var public_repos : Int = 0,
-    @SerializedName("followers")
-    @Expose
-    var followers : Int = 0,
-    @SerializedName("following")
-    @Expose
-    var following : Int = 0
+    var Poster : String?
 )

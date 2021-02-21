@@ -5,6 +5,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Path
 
 interface GithubAPIService {
-    @GET("users/{login}")
-    fun getUser(@Path("login") username:String?): Call<User>
+    @GET("/apikey=f31eb4f6")
+    fun getUser(@Path("s") search:String?): Call<User>
 }
